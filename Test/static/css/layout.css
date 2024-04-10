@@ -17,7 +17,7 @@ ul{
     display:flex;
     gap: 2.083vw;
     height: min-content;
-    /* border: 1px solid white; */
+    /* border: 0.052vw solid white; */
     align-items: center;
     list-style: none;
     
@@ -54,7 +54,7 @@ body, html{
 }
 
 .navbar{
-    border-bottom: 1px solid #2B3245;
+    border-bottom: 0.052vw solid #2B3245;
     display:flex;
     width:100%;
     height: 7vh;
@@ -128,9 +128,9 @@ body, html{
     align-items: center;
     justify-content: center;
     height: fit-content;
-    padding: 20px;
-    border-bottom: 1px solid #232420;
-    gap: 30px;
+    padding: 1.042vw;
+    border-bottom: 0.052vw solid #232420;
+    gap: 1.563vw;
     transition: 0.3s;
 }
 
@@ -139,10 +139,10 @@ body, html{
 }
 
 .name-recent-chat{
-    width: 500px;
+    width: 26.042vw;
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 0.469vw;
 }
 
 .chat-area{
@@ -158,23 +158,23 @@ body, html{
 .textbox {
     display: flex;
     justify-content: flex-start;
-    padding: 10px; /* Adjust padding */
+    padding: 0.521vw; /* Adjust padding */
     align-items: center;
     background: #0F0F0F;
-    gap: 30px;
+    gap: 1.563vw;
     position: absolute;
     bottom: 0; /* Align to the bottom */
-    height: 72px; /* Set height of the textbox */
+    height: 3.75vw; /* Set height of the textbox */
     box-sizing: border-box; /* Include padding and border in the total width and height */
 }
 
 
 .textbar-sendbtn{
     display: flex;
-    height: 72px;
+    height: 3.75vw;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 1.042vw;
 }
 
 .user-chats{
@@ -194,13 +194,13 @@ body, html{
 }
 
 #attachments{
-    width: 15px;
-    height: 15px;
+    width: 0.781vw;
+    height: 0.781vw;
     background-color: #122943;;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:20px;
+    padding:1.042vw;
     border-radius: 50%;
 }
 
@@ -211,19 +211,19 @@ body, html{
 
 .user-chats {
     overflow-y: auto;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 1.042vw 0px 1.042vw;
     max-height: 87vh;
 }
 
 #send-circle{
-    width: 15px;
-    height: 15px;
+    width: 0.781vw;
+    height: 0.781vw;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #48259A;
     border-radius: 50%;
-    padding: 20px;
+    padding: 1.042vw;
 }
 
 .send{
@@ -236,15 +236,15 @@ body, html{
 }
 
 #text-bar{
-    font-size: 20px;
+    font-size: 1.042vw;
     border: none;
     font-weight: 100;
     color: #ffffffde;
     width: 1060px;
-    height: 52px;
-    border-radius: 50px;
+    height: 2.708vw;
+    border-radius: 2.604vw;
     background-color: #161414;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 1.042vw 0px 1.042vw;
 }
 
 #chat, #name{
@@ -253,19 +253,19 @@ body, html{
 }
 
 #name{
-    font-size:22px;
+    font-size:1.146vw;
 }
 
 #chat{
     color:#ffffff85;
     white-space: nowrap;
-    font-size: 18px;
+    font-size: 0.938vw;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 #prof-pic{
-    height: 80px;
-    width: 80px;
-    border-radius: 100px;
+    height: 4.167vw;
+    width: 4.167vw;
+    border-radius: 5.208vw;
 }
