@@ -13,4 +13,5 @@ def chat():
         },]
     return render_template('/chat.html', chat_info=chat_info)
 
-app.run(debug = True)
+if __name__ == '__main__':
+    app.run(debug=True)
