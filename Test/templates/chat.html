@@ -3,50 +3,72 @@
 {% block title %} Devchat {% endblock %}
 
 {% block maincontent %}
-    <div class="chat-box">
-        <div class="chats-panel">
-            {% for user_info in chat_info %}
-                <a href="layout.html">
-                    <div class="one-chat">
-                        {% if user_info['type'] == 'individual' %}
-                            <img id='prof-pic' src="{{ user_info['profile_pic'] }}">
-                            <div class="name-recent-chat">
-                                <h2 id="name">{{ user_info['first_name'] }} {{ user_info['last_name'] }}</h2>
-                                <h3 id='chat'>{{ user_info['recent_chat'] }}</h3>
-                            </div>
-                        {% elif user_info['type'] == 'company' %}
-                            <img id='prof-pic' src="{{ user_info['company_pic'] }}">
-                            <div class="name-recent-chat">
-                                <h2 id="name">{{ user_info['company_name'] }}</h2>
-                                <h3 id='chat'>{{ user_info['recent_chat'] }}</h3>
-                            </div>
-                        {% endif %}
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
-        <div class="chat-area">
-            <div class="user-chats">
-                <div class="contact-text">
-                    <h1>yes</h1>
-                    <h1>yes</h1>
+<div class="chat-box">
+    <div class="chats-panel">
+        {% for user_info in chat_info %}
+        <a href="layout.html">
+            <div class="one-chat">
+                {% if user_info['type'] == 'individual' %}
+                <img id='prof-pic' src="{{ user_info['profile_pic'] }}">
+                <div class="name-recent-chat">
+                    <h2 id="name">{{ user_info['first_name'] }} {{ user_info['last_name'] }}</h2>
+                    <h3 id='chat'>{{ user_info['recent_chat'] }}</h3>
                 </div>
-                <div class="user-text">
-                    <h1>no</h1>
-                    <h1>no</h1>
+                {% elif user_info['type'] == 'company' %}
+                <img id='prof-pic' src="{{ user_info['company_pic'] }}">
+                <div class="name-recent-chat">
+                    <h2 id="name">{{ user_info['company_name'] }}</h2>
+                    <h3 id='chat'>{{ user_info['recent_chat'] }}</h3>
                 </div>
+                {% endif %}
             </div>
-            <div class="textbox">
-                <div id="attachments">
-                    <i class="bi bi-paperclip paperclip"></i>
-                </div>
-                <div class="textbar-sendbtn">
-                    <input id='text-bar' type="text">
-                    <div id="send-circle">
-                        <i class="bi bi-send-fill send"></i>
-                    </div>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="chat-area">
+        <div class="user-chats" id="user-chats">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        <div class="textbox">
+            <div id="attachments">
+                <i class="bi bi-paperclip paperclip"></i>
+            </div>
+            <div class="textbar-sendbtn">
+                <input id='text-bar' type="text" onkeydown="if (event.keyCode === 13) sendMessage()">
+                <div id="send-circle" onclick="sendMessage()">
+                    <i class="bi bi-cursor-fill send"></i>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.3.1/socket.io.js"></script>
+<script>
+    var socket = io();
+
+    // Function to handle incoming messages
+    socket.on('message', function(message) {
+        var userChats = document.getElementById('user-chats');
+        var newMessage = document.createElement('div');
+        newMessage.classList.add('message-right'); // Added class for text alignment to the right
+        newMessage.textContent = message;
+        userChats.appendChild(newMessage);
+    });
+
+    // Function to send message
+    function sendMessage() {
+        var input = document.getElementById('text-bar');
+        var message = input.value;
+        if (message.trim() !== '') {
+            input.value = '';
+            socket.emit('message', message);
+        }
+    }
+
+    // Establish WebSocket connection when the page loads
+    window.onload = function() {
+        socket.connect();
+    };
+</script>
 {% endblock %}

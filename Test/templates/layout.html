@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <style>
+        /* CSS for social media texting look */
+        .user-chats .message-right {
+            background-color: #DCF8C6; /* Light green background */
+            color: #000; /* Black text color */
+            border-radius: 10px; /* Rounded corners */
+            padding: 8px 12px; /* Padding */
+            margin: 6px 0; /* Margin between messages */
+            float: right; /* Align messages to the right */
+            clear: both; /* Clear floating */
+        }
+    </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/static/js/render.js"></script>
     <title>{% block title %}{% endblock %}</title>
 </head>
+
 <body>
     <div class="container fadeinanimation">
         <div class="navbar">
@@ -30,4 +44,5 @@
     </div>
     {% block maincontent %}{% endblock %}
 </body>
+
 </html>
